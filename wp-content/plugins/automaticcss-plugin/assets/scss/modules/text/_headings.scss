@@ -1,0 +1,10 @@
+@if $option-basic-text-classes == on {
+  @each $size in $headingExtensions {
+    .h--#{$size} {
+      font-size: var(--h#{$size});
+      line-height: var(--h#{$size}-lh);
+      max-inline-size: var(--h#{$size}-length);
+      color: var(--h#{$size}-color, var(--heading-color));
+    }
+  }
+}

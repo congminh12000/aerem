@@ -1,0 +1,12 @@
+.x-media-player-playlist_inner:not(:first-child) {
+    display: none;
+}
+
+.brxe-xmediaplaylist a:focus {
+    outline: none;
+}
+
+.brxe-xmediaplaylist:focus-within,
+.brxe-xmediaplaylist:focus-visible {
+    outline: thin dotted currentcolor;
+}

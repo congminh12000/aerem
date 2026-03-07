@@ -1,0 +1,49 @@
+// Generate gap classes
+@if $option-oxygen == off {
+  @include load-gap;
+}
+
+// Contextual Gap Classes
+
+.fr-container-gap,
+.container-gap {
+  --row-gap: var(--container-gap);
+  --col-gap: var(--container-gap);
+  gap: var(--container-gap);
+}
+.fr-content-gap,
+.content-gap {
+  --row-gap: var(--content-gap);
+  --col-gap: var(--content-gap);
+    gap: var(--content-gap);
+}
+.fr-grid-gap,
+.grid-gap {
+  --row-gap: var(--grid-gap);
+  --col-gap: var(--grid-gap);
+    gap: var(--grid-gap);
+}
+
+.gap--none {
+  --row-gap: 0;
+  --col-gap: 0;
+  gap: 0;
+}
+
+// Add container gap between all elements in sections.
+@if $option-container-gap == on {
+  @include auto-contextual-spacing(section, var(--container-gap), center);
+}
+
+// Add content gap inside all direct divs in sections.
+@if $option-content-gap == on {
+  @include auto-contextual-spacing("section > div", var(--content-gap), flex-start);
+}
+
+// Add grid gap to all grid classes automatically.
+@if $option-grid-gap == on {
+  section > div:where([class*="grid--"]),
+  :where([class*="grid--"]) {
+      gap: var(--grid-gap);
+  }
+}

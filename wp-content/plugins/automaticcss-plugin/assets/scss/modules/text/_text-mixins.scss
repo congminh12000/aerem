@@ -1,0 +1,135 @@
+// Mixins to load site defaults
+//// Default text styles
+@mixin load-default-text() {
+  // Body Styles
+  body {
+    font-size: var(--text-m);
+    line-height: var(--text-m-lh);
+  }
+
+  // Headings
+  @for $i from 1 through 6 {
+      h#{$i} {
+          font-size: var(--h#{$i});
+          line-height: var(--h#{$i}-lh);
+          color: var(--h#{$i}-color, var(--heading-color));
+      }
+  }
+
+  // Default paragraph length cap
+  @if $text-line-length != null {
+    p {
+      max-inline-size: var(--text-m-length, $text-line-length);
+    }
+  }
+}
+//// Default body styles
+@mixin load-default-body() {
+  @if $option-boxed-layout == on {
+    html {
+      background-color: var(--device-bg-color, $device-bg-color);
+    }
+  }
+  body {
+    color: var(--body-color, $body-color);
+    background-color: var(--body-bg-color, $body-bg-color);
+    @if $option-boxed-layout == on {
+      inline-size: 100%;
+      max-inline-size: var(--body-max-width, $body-max-width);
+      box-shadow: var(--body-box-shadow, $body-box-shadow);
+      border-color: var(--body-border-color, $body-border-color);
+      border-style: var(--body-border-style, $body-border-style);
+      border-width: var(--body-border-width, $body-border-width);
+      border-radius: var(--body-border-radius, $body-border-radius);
+      margin-block-start: var(--body-margin-top, #{$body-margin-top}) !important;
+      margin-inline: auto !important;
+    }
+  }
+}
+//// Default link styles
+@mixin load-default-links() {
+
+  @if $option-link-default-not == off {
+    // Define link style if no user exclusion rules present
+    body a {
+      color: var(--link-color, $link-color);
+      font-weight: var(--link-weight, $link-weight);
+      -webkit-text-decoration: var(--link-decoration, $link-decoration);
+      text-decoration: var(--link-decoration, $link-decoration);
+      text-underline-offset: var(--link-underline-offset, $link-underline-offset);
+  
+      &:hover {
+        color: var(--link-color-hover, $link-color-hover);
+        @if $link-decoration-hover != "inherit" {
+          -webkit-text-decoration: var(--link-decoration-hover, $link-decoration-hover);
+          text-decoration: var(--link-decoration-hover, $link-decoration-hover);
+        }
+      }
+    }
+   } @else {
+     // Add user exclusions rules if they exist
+      body a:where(:not(#{$link-default-not})) {
+        color: var(--link-color, $link-color);
+        font-weight: var(--link-weight, $link-weight);
+        -webkit-text-decoration: var(--link-decoration, $link-decoration);
+        text-decoration: var(--link-decoration, $link-decoration);
+        text-underline-offset: var(--link-underline-offset, $link-underline-offset);
+    
+        &:hover {
+          color: var(--link-color-hover, $link-color-hover);
+          @if $link-decoration-hover != "inherit" {
+            -webkit-text-decoration: var(--link-decoration-hover, $link-decoration-hover);
+            text-decoration: var(--link-decoration-hover, $link-decoration-hover);
+          }
+        }
+    }
+  }
+
+  // Default link style for headings
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    a {
+      font-weight: inherit;
+      text-decoration: inherit;
+      color: currentcolor;
+      text-underline-offset: var(--link-underline-offset, $link-underline-offset);
+
+      &:hover {
+        color: currentcolor;
+      }
+    }
+  }
+
+}
+//// Before Builder Defaults
+@mixin load-before-builder-default-styles {
+  // Headings
+  @for $i from 1 through 6 {
+    h#{$i} {
+        color: var(--h#{$i}-color, var(--black));
+    }
+  }
+}
+
+// Text Mixins
+@mixin fluid-text($pure, $min, $max) {
+  font-size: #{$pure}rem;
+  font-size: fluidCalc($min, $max);
+  font-size: fluidClamp($min, $max);
+}
+  
+@mixin map-get-fluid-text($extension) {
+  font-size: map-get(map-get($textSizing, pure), text-#{$extension}-pure);
+  font-size: map-get(map-get($textSizing, calc), text-#{$extension}-calc);
+  font-size: map-get(map-get($textSizing, clamp), text-#{$extension}-clamp);
+}
+  
+@mixin map-get-fluid-heading($extension) {
+  font-size: map-get(map-get($headingSizes, pure), #{$extension}-pure);
+  font-size: map-get(map-get($headingSizes, calc), #{$extension}-calc);
+  font-size: map-get(map-get($headingSizes, clamp), #{$extension}-clamp);
+}

@@ -1,0 +1,743 @@
+// @import "../../dashboard/options";
+
+// // AVAILABLE MAPS FOR LOOPS
+// // $core-colors = main colors & shades (no partials or transparencies)
+// // $trans-colors = transparencies only
+// // $all-colors = all colors, shades, and transparencies (no partials)
+// // $color-partials = color partials only
+
+// // Create a main colors map
+// $colors: (
+//   action: (
+//     "action-main": (
+//       "action": $action-hex,
+//       "action-hover":
+//         hsl($action-hover-h, $action-hover-s, $action-l * $action-hover-l),
+//       "action-ultra-light":
+//         hsl($action-ultra-light-h, $action-ultra-light-s, $action-ultra-light-l),
+//       "action-light": hsl($action-light-h, $action-light-s, $action-light-l),
+//       "action-medium": hsl($action-medium-h, $action-medium-s, $action-medium-l),
+//       "action-dark": hsl($action-dark-h, $action-dark-s, $action-dark-l),
+//       "action-ultra-dark":
+//         hsl($action-ultra-dark-h, $action-ultra-dark-s, $action-ultra-dark-l),
+//       "action-comp": hsl($action-h + 180, $action-s, $action-l),
+//     ),
+//     "action-partials": (
+//       "action-hex": $action-hex,
+//       "action-hsl": $action-h $action-s $action-l,
+//       "action-rgb": $action-r $action-g $action-b,
+//       "action-r": $action-r,
+//       "action-g": $action-g,
+//       "action-b": $action-b,
+//       "action-h": $action-h,
+//       "action-s": $action-s,
+//       "action-l": $action-l,
+//       "action-hover-h": $action-hover-h,
+//       "action-hover-s": $action-hover-s,
+//       "action-hover-l": $action-hover-l,
+//       "action-ultra-light-h": $action-ultra-light-h,
+//       "action-ultra-light-s": $action-ultra-light-s,
+//       "action-ultra-light-l": $action-ultra-light-l,
+//       "action-light-h": $action-light-h,
+//       "action-light-s": $action-light-s,
+//       "action-light-l": $action-light-l,
+//       "action-medium-h": $action-medium-h,
+//       "action-medium-s": $action-medium-s,
+//       "action-medium-l": $action-medium-l,
+//       "action-dark-h": $action-dark-h,
+//       "action-dark-s": $action-dark-s,
+//       "action-dark-l": $action-dark-l,
+//       "action-ultra-dark-h": $action-ultra-dark-h,
+//       "action-ultra-dark-s": $action-ultra-dark-s,
+//       "action-ultra-dark-l": $action-ultra-dark-l,
+//       "action-comp-h": $action-h + 180,
+//     ),
+//   ),
+//   primary: (
+//     "primary-main": (
+//       "primary": $primary-hex,
+//       "primary-hover":
+//         hsl($primary-hover-h, $primary-hover-s, $primary-l * $primary-hover-l),
+//       "primary-ultra-light":
+//         hsl(
+//           $primary-ultra-light-h,
+//           $primary-ultra-light-s,
+//           $primary-ultra-light-l
+//         ),
+//       "primary-light": hsl($primary-light-h, $primary-light-s, $primary-light-l),
+//       "primary-medium":
+//         hsl($primary-medium-h, $primary-medium-s, $primary-medium-l),
+//       "primary-dark": hsl($primary-dark-h, $primary-dark-s, $primary-dark-l),
+//       "primary-ultra-dark":
+//         hsl($primary-ultra-dark-h, $primary-ultra-dark-s, $primary-ultra-dark-l),
+//       "primary-comp": hsl($primary-h + 180, $primary-s, $primary-l),
+//     ),
+//     "primary-partials": (
+//       "primary-hex": $primary-hex,
+//       "primary-hsl": $primary-h $primary-s $primary-l,
+//       "primary-rgb": $primary-r $primary-g $primary-b,
+//       "primary-r": $primary-r,
+//       "primary-g": $primary-g,
+//       "primary-b": $primary-b,
+//       "primary-h": $primary-h,
+//       "primary-s": $primary-s,
+//       "primary-l": $primary-l,
+//       "primary-hover-h": $primary-hover-h,
+//       "primary-hover-s": $primary-hover-s,
+//       "primary-hover-l": $primary-hover-l,
+//       "primary-ultra-light-h": $primary-ultra-light-h,
+//       "primary-ultra-light-s": $primary-ultra-light-s,
+//       "primary-ultra-light-l": $primary-ultra-light-l,
+//       "primary-light-h": $primary-light-h,
+//       "primary-light-s": $primary-light-s,
+//       "primary-light-l": $primary-light-l,
+//       "primary-medium-h": $primary-medium-h,
+//       "primary-medium-s": $primary-medium-s,
+//       "primary-medium-l": $primary-medium-l,
+//       "primary-dark-h": $primary-dark-h,
+//       "primary-dark-s": $primary-dark-s,
+//       "primary-dark-l": $primary-dark-l,
+//       "primary-ultra-dark-h": $primary-ultra-dark-h,
+//       "primary-ultra-dark-s": $primary-ultra-dark-s,
+//       "primary-ultra-dark-l": $primary-ultra-dark-l,
+//       "primary-comp-h": $primary-h + 180,
+//     ),
+//   ),
+//   secondary: (
+//     "secondary-main": (
+//       "secondary": $secondary-hex,
+//       "secondary-hover":
+//         hsl(
+//           $secondary-hover-h,
+//           $secondary-hover-s,
+//           $secondary-l * $secondary-hover-l
+//         ),
+//       "secondary-ultra-light":
+//         hsl(
+//           $secondary-ultra-light-h,
+//           $secondary-ultra-light-s,
+//           $secondary-ultra-light-l
+//         ),
+//       "secondary-light":
+//         hsl($secondary-light-h, $secondary-light-s, $secondary-light-l),
+//       "secondary-medium":
+//         hsl($secondary-medium-h, $secondary-medium-s, $secondary-medium-l),
+//       "secondary-dark":
+//         hsl($secondary-dark-h, $secondary-dark-s, $secondary-dark-l),
+//       "secondary-ultra-dark":
+//         hsl(
+//           $secondary-ultra-dark-h,
+//           $secondary-ultra-dark-s,
+//           $secondary-ultra-dark-l
+//         ),
+//       "secondary-comp": hsl($secondary-h + 180, $secondary-s, $secondary-l),
+//     ),
+//     "secondary-partials": (
+//       "secondary-hex": $secondary-hex,
+//       "secondary-hsl": $secondary-h $secondary-s $secondary-l,
+//       "secondary-rgb": $secondary-r $secondary-g $secondary-b,
+//       "secondary-r": $secondary-r,
+//       "secondary-g": $secondary-g,
+//       "secondary-b": $secondary-b,
+//       "secondary-h": $secondary-h,
+//       "secondary-s": $secondary-s,
+//       "secondary-l": $secondary-l,
+//       "secondary-hover-h": $secondary-hover-h,
+//       "secondary-hover-s": $secondary-hover-s,
+//       "secondary-hover-l": $secondary-hover-l,
+//       "secondary-ultra-light-h": $secondary-ultra-light-h,
+//       "secondary-ultra-light-s": $secondary-ultra-light-s,
+//       "secondary-ultra-light-l": $secondary-ultra-light-l,
+//       "secondary-light-h": $secondary-light-h,
+//       "secondary-light-s": $secondary-light-s,
+//       "secondary-light-l": $secondary-light-l,
+//       "secondary-medium-h": $secondary-medium-h,
+//       "secondary-medium-s": $secondary-medium-s,
+//       "secondary-medium-l": $secondary-medium-l,
+//       "secondary-dark-h": $secondary-dark-h,
+//       "secondary-dark-s": $secondary-dark-s,
+//       "secondary-dark-l": $secondary-dark-l,
+//       "secondary-ultra-dark-h": $secondary-ultra-dark-h,
+//       "secondary-ultra-dark-s": $secondary-ultra-dark-s,
+//       "secondary-ultra-dark-l": $secondary-ultra-dark-l,
+//       "secondary-comp-h": $secondary-h + 180,
+//     ),
+//   ),
+//   accent: (
+//     "accent-main": (
+//       "accent": $accent-hex,
+//       "accent-hover":
+//         hsl($accent-hover-h, $accent-hover-s, $accent-l * $accent-hover-l),
+//       "accent-ultra-light":
+//         hsl($accent-ultra-light-h, $accent-ultra-light-s, $accent-ultra-light-l),
+//       "accent-light": hsl($accent-light-h, $accent-light-s, $accent-light-l),
+//       "accent-medium": hsl($accent-medium-h, $accent-medium-s, $accent-medium-l),
+//       "accent-dark": hsl($accent-dark-h, $accent-dark-s, $accent-dark-l),
+//       "accent-ultra-dark":
+//         hsl($accent-ultra-dark-h, $accent-ultra-dark-s, $accent-ultra-dark-l),
+//       "accent-comp": hsl($accent-h + 180, $accent-s, $accent-l),
+//     ),
+//     "accent-partials": (
+//       "accent-hex": $accent-hex,
+//       "accent-hsl": $accent-h $accent-s $accent-l,
+//       "accent-rgb": $accent-r $accent-g $accent-b,
+//       "accent-r": $accent-r,
+//       "accent-g": $accent-g,
+//       "accent-b": $accent-b,
+//       "accent-h": $accent-h,
+//       "accent-s": $accent-s,
+//       "accent-l": $accent-l,
+//       "accent-hover-h": $accent-hover-h,
+//       "accent-hover-s": $accent-hover-s,
+//       "accent-hover-l": $accent-hover-l,
+//       "accent-ultra-light-h": $accent-ultra-light-h,
+//       "accent-ultra-light-s": $accent-ultra-light-s,
+//       "accent-ultra-light-l": $accent-ultra-light-l,
+//       "accent-light-h": $accent-light-h,
+//       "accent-light-s": $accent-light-s,
+//       "accent-light-l": $accent-light-l,
+//       "accent-medium-h": $accent-medium-h,
+//       "accent-medium-s": $accent-medium-s,
+//       "accent-medium-l": $accent-medium-l,
+//       "accent-dark-h": $accent-dark-h,
+//       "accent-dark-s": $accent-dark-s,
+//       "accent-dark-l": $accent-dark-l,
+//       "accent-ultra-dark-h": $accent-ultra-dark-h,
+//       "accent-ultra-dark-s": $accent-ultra-dark-s,
+//       "accent-ultra-dark-l": $accent-ultra-dark-l,
+//       "accent-comp-h": $accent-h + 180,
+//     ),
+//   ),
+//   base: (
+//     "base-main": (
+//       "base": $base-hex,
+//       "base-hover": hsl($base-hover-h, $base-hover-s, $base-l * $base-hover-l),
+//       "base-ultra-light":
+//         hsl($base-ultra-light-h, $base-ultra-light-s, $base-ultra-light-l),
+//       "base-light": hsl($base-light-h, $base-light-s, $base-light-l),
+//       "base-medium": hsl($base-medium-h, $base-medium-s, $base-medium-l),
+//       "base-dark": hsl($base-dark-h, $base-dark-s, $base-dark-l),
+//       "base-ultra-dark":
+//         hsl($base-ultra-dark-h, $base-ultra-dark-s, $base-ultra-dark-l),
+//       "base-comp": hsl($base-h + 180, $base-s, $base-l),
+//     ),
+//     "base-partials": (
+//       "base-hex": $base-hex,
+//       "base-hsl": $base-h $base-s $base-l,
+//       "base-rgb": $base-r $base-g $base-b,
+//       "base-r": $base-r,
+//       "base-g": $base-g,
+//       "base-b": $base-b,
+//       "base-h": $base-h,
+//       "base-s": $base-s,
+//       "base-l": $base-l,
+//       "base-hover-h": $base-hover-h,
+//       "base-hover-s": $base-hover-s,
+//       "base-hover-l": $base-hover-l,
+//       "base-ultra-light-h": $base-ultra-light-h,
+//       "base-ultra-light-s": $base-ultra-light-s,
+//       "base-ultra-light-l": $base-ultra-light-l,
+//       "base-light-h": $base-light-h,
+//       "base-light-s": $base-light-s,
+//       "base-light-l": $base-light-l,
+//       "base-medium-h": $base-medium-h,
+//       "base-medium-s": $base-medium-s,
+//       "base-medium-l": $base-medium-l,
+//       "base-dark-h": $base-dark-h,
+//       "base-dark-s": $base-dark-s,
+//       "base-dark-l": $base-dark-l,
+//       "base-ultra-dark-h": $base-ultra-dark-h,
+//       "base-ultra-dark-s": $base-ultra-dark-s,
+//       "base-ultra-dark-l": $base-ultra-dark-l,
+//       "base-comp-h": $base-h + 180,
+//     ),
+//   ),
+//   neutral: (
+//     "neutral-main": (
+//       "neutral": $neutral-hex,
+//       "neutral-hover":
+//         hsl($neutral-hover-h, $neutral-hover-s, $neutral-l * $neutral-hover-l),
+//       "neutral-ultra-light":
+//         hsl($neutral-ultra-light-h, $neutral-ultra-light-s, $neutral-ultra-light-l),
+//       "neutral-light": hsl($neutral-light-h, $neutral-light-s, $neutral-light-l),
+//       "neutral-medium": hsl($neutral-medium-h, $neutral-medium-s, $neutral-medium-l),
+//       "neutral-dark": hsl($neutral-dark-h, $neutral-dark-s, $neutral-dark-l),
+//       "neutral-ultra-dark":
+//         hsl($neutral-ultra-dark-h, $neutral-ultra-dark-s, $neutral-ultra-dark-l),
+//       "neutral-comp": hsl($neutral-h + 180, $neutral-s, $neutral-l),
+//     ),
+//     "neutral-partials": (
+//       "neutral-hex": $neutral-hex,
+//       "neutral-hsl": $neutral-h $neutral-s $neutral-l,
+//       "neutral-rgb": $neutral-r $neutral-g $neutral-b,
+//       "neutral-r": $neutral-r,
+//       "neutral-g": $neutral-g,
+//       "neutral-b": $neutral-b,
+//       "neutral-h": $neutral-h,
+//       "neutral-s": $neutral-s,
+//       "neutral-l": $neutral-l,
+//       "neutral-hover-h": $neutral-hover-h,
+//       "neutral-hover-s": $neutral-hover-s,
+//       "neutral-hover-l": $neutral-hover-l,
+//       "neutral-ultra-light-h": $neutral-ultra-light-h,
+//       "neutral-ultra-light-s": $neutral-ultra-light-s,
+//       "neutral-ultra-light-l": $neutral-ultra-light-l,
+//       "neutral-light-h": $neutral-light-h,
+//       "neutral-light-s": $neutral-light-s,
+//       "neutral-light-l": $neutral-light-l,
+//       "neutral-medium-h": $neutral-medium-h,
+//       "neutral-medium-s": $neutral-medium-s,
+//       "neutral-medium-l": $neutral-medium-l,
+//       "neutral-dark-h": $neutral-dark-h,
+//       "neutral-dark-s": $neutral-dark-s,
+//       "neutral-dark-l": $neutral-dark-l,
+//       "neutral-ultra-dark-h": $neutral-ultra-dark-h,
+//       "neutral-ultra-dark-s": $neutral-ultra-dark-s,
+//       "neutral-ultra-dark-l": $neutral-ultra-dark-l,
+//       "neutral-comp-h": $neutral-h + 180,
+//     ),
+//   ),
+//   shade: (
+//     "shade-main": (
+//       "shade": $shade-hex,
+//       "shade-hover":
+//         hsl($shade-hover-h, $shade-hover-s, $shade-l * $shade-hover-l),
+//       "shade-ultra-light":
+//         hsl($shade-ultra-light-h, $shade-ultra-light-s, $shade-ultra-light-l),
+//       "shade-light": hsl($shade-light-h, $shade-light-s, $shade-light-l),
+//       "shade-medium": hsl($shade-medium-h, $shade-medium-s, $shade-medium-l),
+//       "shade-dark": hsl($shade-dark-h, $shade-dark-s, $shade-dark-l),
+//       "shade-ultra-dark":
+//         hsl($shade-ultra-dark-h, $shade-ultra-dark-s, $shade-ultra-dark-l),
+//       "shade-comp": hsl($shade-h + 180, $shade-s, $shade-l),
+//     ),
+//     "shade-partials": (
+//       "shade-hex": $shade-hex,
+//       "shade-hsl": $shade-h $shade-s $shade-l,
+//       "shade-rgb": $shade-r $shade-g $shade-b,
+//       "shade-r": $shade-r,
+//       "shade-g": $shade-g,
+//       "shade-b": $shade-b,
+//       "shade-h": $shade-h,
+//       "shade-s": $shade-s,
+//       "shade-l": $shade-l,
+//       "shade-hover-h": $shade-hover-h,
+//       "shade-hover-s": $shade-hover-s,
+//       "shade-hover-l": $shade-hover-l,
+//       "shade-ultra-light-h": $shade-ultra-light-h,
+//       "shade-ultra-light-s": $shade-ultra-light-s,
+//       "shade-ultra-light-l": $shade-ultra-light-l,
+//       "shade-light-h": $shade-light-h,
+//       "shade-light-s": $shade-light-s,
+//       "shade-light-l": $shade-light-l,
+//       "shade-medium-h": $shade-medium-h,
+//       "shade-medium-s": $shade-medium-s,
+//       "shade-medium-l": $shade-medium-l,
+//       "shade-dark-h": $shade-dark-h,
+//       "shade-dark-s": $shade-dark-s,
+//       "shade-dark-l": $shade-dark-l,
+//       "shade-ultra-dark-h": $shade-ultra-dark-h,
+//       "shade-ultra-dark-s": $shade-ultra-dark-s,
+//       "shade-ultra-dark-l": $shade-ultra-dark-l,
+//       "shade-comp-h": $shade-h + 180,
+//     ),
+//   ),
+//   bw: (
+//     "bw-main": (
+//       "white": #fff,
+//       "black": #000,
+//     ),
+//     "black-trans": (
+//       "black-trans-10": hsl(0, 0%, 0%, 0.1),
+//       "black-trans-20": hsl(0, 0%, 0%, 0.2),
+//       "black-trans-30": hsl(0, 0%, 0%, 0.3),
+//       "black-trans-40": hsl(0, 0%, 0%, 0.4),
+//       "black-trans-50": hsl(0, 0%, 0%, 0.5),
+//       "black-trans-60": hsl(0, 0%, 0%, 0.6),
+//       "black-trans-70": hsl(0, 0%, 0%, 0.7),
+//       "black-trans-80": hsl(0, 0%, 0%, 0.8),
+//       "black-trans-90": hsl(0, 0%, 0%, 0.9),
+//     ),
+//     "white-trans": (
+//       "white-trans-10": rgb(255, 255, 255, 0.1),
+//       "white-trans-20": rgb(255, 255, 255, 0.2),
+//       "white-trans-30": rgb(255, 255, 255, 0.3),
+//       "white-trans-40": rgb(255, 255, 255, 0.4),
+//       "white-trans-50": rgb(255, 255, 255, 0.5),
+//       "white-trans-60": rgb(255, 255, 255, 0.6),
+//       "white-trans-70": rgb(255, 255, 255, 0.7),
+//       "white-trans-80": rgb(255, 255, 255, 0.8),
+//       "white-trans-90": rgb(255, 255, 255, 0.9),
+//     ),
+//     "bw-trans": (),
+//     "bw-light-trans": (),
+//     "bw-dark-trans": (),
+//     "bw-ultra-dark-trans": (),
+//     "bw-partials": (),
+//   ),
+// );
+
+// // Extract each color to its own map for easier processing
+
+// $action-map: map-get($colors, action);
+// $primary-map: map-get($colors, primary);
+// $secondary-map: map-get($colors, secondary);
+// $accent-map: map-get($colors, accent);
+// $base-map: map-get($colors, base);
+// $neutral-map: map-get($colors, neutral);
+// $shade-map: map-get($colors, shade);
+
+// // Remove any colors the user turns off
+// @if $option-action-clr == off {
+//   $colors: map-remove($colors, action);
+// }
+// @if $option-primary-clr == off {
+//   $colors: map-remove($colors, primary);
+// }
+// @if $option-secondary-clr == off {
+//   $colors: map-remove($colors, secondary);
+// }
+// @if $option-accent-clr == off {
+//   $colors: map-remove($colors, accent);
+// }
+// @if $option-base-clr == off {
+//   $colors: map-remove($colors, base);
+// }
+// @if $option-neutral-clr == off {
+//   $colors: map-remove($colors, neutral);
+// }
+// @if $option-shade-clr == off {
+//   $colors: map-remove($colors, shade);
+// }
+
+
+// // Create core colors map (no partials & no transparencies)
+// // For generating utilities that don't need partials or transparencies
+// $core-colors: ();
+// @each $color, $color-cats in $colors {
+//   $core-colors: map-merge(
+//     $core-colors,
+//     map-get($colors, $color, #{$color}-main)
+//   );
+// }
+
+// // Create partials colors map (no partials & no transparencies)
+// // For generating utilities that don't need partials or transparencies
+// $color-partials: ();
+// @each $color, $color-cats in $colors {
+//   $color-partials: map-merge(
+//     $color-partials,
+//     map-get($colors, $color, #{$color}-partials)
+//   );
+// }
+
+// // Create a no partials map (no partials)
+// // Needed for easily excluding partials from certain places
+// $colors-no-partials: ();
+// @each $color, $color-cats in $colors {
+//   $colors-no-partials: map-merge(
+//     $colors-no-partials,
+//     (
+//       $color: map-remove($color-cats, "#{$color}-partials"),
+//     )
+//   );
+// }
+
+// // Conditionally Add Transparencies to $colors Map
+// //// Action
+// $action-trans-map: ();
+// @if $option-action-clr == on { // Check to see if color is on.
+//   @for $i from 1 through 9 {
+//     $trans-value: $i / 10;
+//     // Regular transparencies
+//     @if $option-action-main-trans == on {
+//       $action-trans-map: map-merge($action-trans-map, (
+//         "action-trans-#{$i * 10}": hsl($action-h, $action-s, $action-l, $trans-value),
+//       ));
+//     }
+//     // Light transparencies
+//     @if $option-action-light-trans == on {
+//       $action-trans-map: map-merge($action-trans-map, (
+//           "action-light-trans-#{$i * 10}": hsl($action-light-h, $action-light-s, $action-light-l, $trans-value),
+//       ));
+//     }
+//     // Dark transparencies
+//     @if $option-action-dark-trans == on {
+//       $action-trans-map: map-merge($action-trans-map, (
+//           "action-dark-trans-#{$i * 10}": hsl($action-dark-h, $action-dark-s, $action-dark-l, $trans-value),
+//       ));
+//     }
+//     // Ultra Dark transparencies
+//     @if $option-action-ultra-dark-trans == on {
+//       $action-trans-map: map-merge($action-trans-map, (
+//           "action-ultra-dark-trans-#{$i * 10}": hsl($action-ultra-dark-h, $action-ultra-dark-s, $action-ultra-dark-l, $trans-value),
+//       ));
+//     }
+//   }
+// }
+// //// Primary
+// $primary-trans-map: ();
+// @if $option-primary-clr == on { // Check to see if color is on.
+// @for $i from 1 through 9 {
+//     $trans-value: $i / 10;
+//     // Regular transparencies
+//     @if $option-primary-main-trans == on {
+//       $primary-trans-map: map-merge($primary-trans-map, (
+//         "primary-trans-#{$i * 10}": hsl($primary-h, $primary-s, $primary-l, $trans-value),
+//       ));
+//     }
+//     // Light transparencies
+//     @if $option-primary-light-trans == on {
+//       $primary-trans-map: map-merge($primary-trans-map, (
+//           "primary-light-trans-#{$i * 10}": hsl($primary-light-h, $primary-light-s, $primary-light-l, $trans-value),
+//       ));
+//     }
+//     // Dark transparencies
+//     @if $option-primary-dark-trans == on {
+//       $primary-trans-map: map-merge($primary-trans-map, (
+//           "primary-dark-trans-#{$i * 10}": hsl($primary-dark-h, $primary-dark-s, $primary-dark-l, $trans-value),
+//       ));
+//     }
+//     // Ultra Dark transparencies
+//     @if $option-primary-ultra-dark-trans == on {
+//       $primary-trans-map: map-merge($primary-trans-map, (
+//           "primary-ultra-dark-trans-#{$i * 10}": hsl($primary-ultra-dark-h, $primary-ultra-dark-s, $primary-ultra-dark-l, $trans-value),
+//       ));
+//     }
+//   }
+// }
+// //// secondary
+// $secondary-trans-map: ();
+// @if $option-secondary-clr == on { // Check to see if color is on.
+// @for $i from 1 through 9 {
+//     $trans-value: $i / 10;
+//     // Regular transparencies
+//     @if $option-secondary-main-trans == on {
+//       $secondary-trans-map: map-merge($secondary-trans-map, (
+//         "secondary-trans-#{$i * 10}": hsl($secondary-h, $secondary-s, $secondary-l, $trans-value),
+//       ));
+//     }
+//     // Light transparencies
+//     @if $option-secondary-light-trans == on {
+//       $secondary-trans-map: map-merge($secondary-trans-map, (
+//           "secondary-light-trans-#{$i * 10}": hsl($secondary-light-h, $secondary-light-s, $secondary-light-l, $trans-value),
+//       ));
+//     }
+//     // Dark transparencies
+//     @if $option-secondary-dark-trans == on {
+//       $secondary-trans-map: map-merge($secondary-trans-map, (
+//           "secondary-dark-trans-#{$i * 10}": hsl($secondary-dark-h, $secondary-dark-s, $secondary-dark-l, $trans-value),
+//       ));
+//     }
+//     // Ultra Dark transparencies
+//     @if $option-secondary-ultra-dark-trans == on {
+//       $secondary-trans-map: map-merge($secondary-trans-map, (
+//           "secondary-ultra-dark-trans-#{$i * 10}": hsl($secondary-ultra-dark-h, $secondary-ultra-dark-s, $secondary-ultra-dark-l, $trans-value),
+//       ));
+//     }
+//   }
+// }
+// //// accent
+// $accent-trans-map: ();
+// @if $option-accent-clr == on { // Check to see if color is on.
+// @for $i from 1 through 9 {
+//     $trans-value: $i / 10;
+//     // Regular transparencies
+//     @if $option-accent-main-trans == on {
+//       $accent-trans-map: map-merge($accent-trans-map, (
+//         "accent-trans-#{$i * 10}": hsl($accent-h, $accent-s, $accent-l, $trans-value),
+//       ));
+//     }
+//     // Light transparencies
+//     @if $option-accent-light-trans == on {
+//       $accent-trans-map: map-merge($accent-trans-map, (
+//           "accent-light-trans-#{$i * 10}": hsl($accent-light-h, $accent-light-s, $accent-light-l, $trans-value),
+//       ));
+//     }
+//     // Dark transparencies
+//     @if $option-accent-dark-trans == on {
+//       $accent-trans-map: map-merge($accent-trans-map, (
+//           "accent-dark-trans-#{$i * 10}": hsl($accent-dark-h, $accent-dark-s, $accent-dark-l, $trans-value),
+//       ));
+//     }
+//     // Ultra Dark transparencies
+//     @if $option-accent-ultra-dark-trans == on {
+//       $accent-trans-map: map-merge($accent-trans-map, (
+//           "accent-ultra-dark-trans-#{$i * 10}": hsl($accent-ultra-dark-h, $accent-ultra-dark-s, $accent-ultra-dark-l, $trans-value),
+//       ));
+//     }
+//   }
+// }
+// //// base
+// $base-trans-map: ();
+// @if $option-base-clr == on { // Check to see if color is on.
+// @for $i from 1 through 9 {
+//     $trans-value: $i / 10;
+//     // Regular transparencies
+//     @if $option-base-main-trans == on {
+//       $base-trans-map: map-merge($base-trans-map, (
+//         "base-trans-#{$i * 10}": hsl($base-h, $base-s, $base-l, $trans-value),
+//       ));
+//     }
+//     // Light transparencies
+//     @if $option-base-light-trans == on {
+//       $base-trans-map: map-merge($base-trans-map, (
+//           "base-light-trans-#{$i * 10}": hsl($base-light-h, $base-light-s, $base-light-l, $trans-value),
+//       ));
+//     }
+//     // Dark transparencies
+//     @if $option-base-dark-trans == on {
+//       $base-trans-map: map-merge($base-trans-map, (
+//           "base-dark-trans-#{$i * 10}": hsl($base-dark-h, $base-dark-s, $base-dark-l, $trans-value),
+//       ));
+//     }
+//     // Ultra Dark transparencies
+//     @if $option-base-ultra-dark-trans == on {
+//       $base-trans-map: map-merge($base-trans-map, (
+//           "base-ultra-dark-trans-#{$i * 10}": hsl($base-ultra-dark-h, $base-ultra-dark-s, $base-ultra-dark-l, $trans-value),
+//       ));
+//     }
+//   }
+// }
+// //// shade
+// $shade-trans-map: ();
+// @for $i from 1 through 9 {
+//     $trans-value: $i / 10;
+//     // Regular transparencies
+//     @if $option-shade-clr == on {
+//       $shade-trans-map: map-merge($shade-trans-map, (
+//         "shade-trans-#{$i * 10}": hsl($shade-h, $shade-s, $shade-l, $trans-value),
+//       ));
+//     }
+//     // Light transparencies
+//     @if $option-shade-clr == on {
+//       $shade-trans-map: map-merge($shade-trans-map, (
+//           "shade-light-trans-#{$i * 10}": hsl($shade-light-h, $shade-light-s, $shade-light-l, $trans-value),
+//       ));
+//     }
+//     // Dark transparencies
+//     @if $option-shade-clr == on {
+//       $shade-trans-map: map-merge($shade-trans-map, (
+//           "shade-dark-trans-#{$i * 10}": hsl($shade-dark-h, $shade-dark-s, $shade-dark-l, $trans-value),
+//       ));
+//     }
+//     // Ultra Dark transparencies
+//     @if $option-shade-clr == on {
+//       $shade-trans-map: map-merge($shade-trans-map, (
+//           "shade-ultra-dark-trans-#{$i * 10}": hsl($shade-ultra-dark-h, $shade-ultra-dark-s, $shade-ultra-dark-l, $trans-value),
+//       ));
+//     }
+// }
+// //// Neutral
+// $neutral-trans-map: ();
+// @for $i from 1 through 9 {
+//     $trans-value: $i / 10;
+//     // Regular transparencies
+//     @if $option-neutral-clr == on {
+//       $neutral-trans-map: map-merge($neutral-trans-map, (
+//         "neutral-trans-#{$i * 10}": hsl($neutral-h, $neutral-s, $neutral-l, $trans-value),
+//       ));
+//     }
+//     // Light transparencies
+//     @if $option-neutral-clr == on {
+//       $neutral-trans-map: map-merge($neutral-trans-map, (
+//           "neutral-light-trans-#{$i * 10}": hsl($neutral-light-h, $neutral-light-s, $neutral-light-l, $trans-value),
+//       ));
+//     }
+//     // Dark transparencies
+//     @if $option-neutral-clr == on {
+//       $neutral-trans-map: map-merge($neutral-trans-map, (
+//           "neutral-dark-trans-#{$i * 10}": hsl($neutral-dark-h, $neutral-dark-s, $neutral-dark-l, $trans-value),
+//       ));
+//     }
+//     // Ultra Dark transparencies
+//     @if $option-neutral-clr == on {
+//       $neutral-trans-map: map-merge($neutral-trans-map, (
+//           "neutral-ultra-dark-trans-#{$i * 10}": hsl($neutral-ultra-dark-h, $neutral-ultra-dark-s, $neutral-ultra-dark-l, $trans-value),
+//       ));
+//     }
+// }
+// // Combine Trans Maps
+// $trans-colors: ();
+// $trans-colors: map-merge($trans-colors, $action-trans-map);
+// $trans-colors: map-merge($trans-colors, $primary-trans-map);
+// $trans-colors: map-merge($trans-colors, $secondary-trans-map);
+// $trans-colors: map-merge($trans-colors, $accent-trans-map);
+// $trans-colors: map-merge($trans-colors, $base-trans-map);
+// $trans-colors: map-merge($trans-colors, $shade-trans-map);
+// $trans-colors: map-merge($trans-colors, $neutral-trans-map);
+// $trans-colors: map-merge($trans-colors, map-get($colors, bw, black-trans));
+// $trans-colors: map-merge($trans-colors, map-get($colors, bw, white-trans));
+
+// // Add trans colors to $colors
+
+// $colors: map-merge($colors, $trans-colors);
+
+// // Create an all colors map without partials
+// $all-colors: ();
+// $all-colors: map-merge($all-colors, $core-colors);
+// $all-colors: map-merge($all-colors, $trans-colors);
+
+
+// // Deprecated in 2.8
+// // Trans colors are now added to the map if they're turned on.
+// // // // Create a trans colors map
+// // // // Map is already flat because we're only getting specific keys
+// // $trans-colors: ();
+// // @each $color, $color-cats in $colors {
+// //   $trans-colors: map-merge(
+// //     $trans-colors,
+// //     map-get($colors, $color, #{$color}-trans)
+// //   );
+// //   $trans-colors: map-merge(
+// //     $trans-colors,
+// //     map-get($colors, $color, #{$color}-light-trans)
+// //   );
+// //   $trans-colors: map-merge(
+// //     $trans-colors,
+// //     map-get($colors, $color, #{$color}-dark-trans)
+// //   );
+// //   $trans-colors: map-merge(
+// //     $trans-colors,
+// //     map-get($colors, $color, #{$color}-ultra-dark-trans)
+// //   );
+// //   $trans-colors: map-merge($trans-colors, map-get($colors, bw, black-trans));
+// //   $trans-colors: map-merge($trans-colors, map-get($colors, bw, white-trans));
+// // }
+
+// $contextualColors: (
+//   successSet: (
+//     success: $success-hex,
+//     success-light: hsl($success-light-h, $success-light-s, $success-light-l),
+//     success-dark: hsl($success-dark-h, $success-dark-s, $success-dark-l),
+//     success-hover:
+//       hsl($success-hover-h, $success-hover-s, $success-l * $success-hover-l),
+//   ),
+//   dangerSet: (
+//     danger: $danger-hex,
+//     danger-light: hsl($danger-light-h, $danger-light-s, $danger-light-l),
+//     danger-dark: hsl($danger-dark-h, $danger-dark-s, $danger-dark-l),
+//     danger-hover:
+//       hsl($danger-hover-h, $danger-hover-s, $danger-l * $danger-hover-l),
+//   ),
+//   warningSet: (
+//     warning: $warning-hex,
+//     warning-light: hsl($warning-light-h, $warning-light-s, $warning-light-l),
+//     warning-dark: hsl($warning-dark-h, $warning-dark-s, $warning-dark-l),
+//     warning-hover:
+//       hsl($warning-hover-h, $warning-hover-s, $warning-l * $warning-hover-l),
+//   ),
+//   infoSet: (
+//     info: $info-hex,
+//     info-light: hsl($info-light-h, $info-light-s, $info-light-l),
+//     info-dark: hsl($info-dark-h, $info-dark-s, $info-dark-l),
+//     info-hover: hsl($info-hover-h, $info-hover-s, $info-l * $info-hover-l),
+//   ),
+// );
+
+// @if $option-contextual-colors == off {
+//   $contextualColors: map-remove($contextualColors, successSet);
+//   $contextualColors: map-remove($contextualColors, dangerSet);
+//   $contextualColors: map-remove($contextualColors, warningSet);
+//   $contextualColors: map-remove($contextualColors, infoSet);
+// }

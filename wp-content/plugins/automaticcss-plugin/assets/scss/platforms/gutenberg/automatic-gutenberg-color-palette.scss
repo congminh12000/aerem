@@ -1,0 +1,29 @@
+@import "../../modules/colors/color-vars";
+@import "../../dashboard/options";
+@import "../../modules/colors/color-maps";
+
+@each $color, $value in $all-colors {
+  .has-#{$color}-color {
+    color: var(--#{$color});
+  }
+  .has-#{$color}-background-color {
+    background-color: var(--#{$color});
+  }
+  .has-#{$color}-border-color {
+    border-color: var(--#{$color});
+  }
+}
+
+@each $color-set, $color-names in $contextualColors {
+	@each $color-name, $color-value in $color-names {
+		.has-#{$color-name}-color {
+			color: var(--#{$color-name});
+		}
+		.has-#{$color-name}-background-color {
+			background-color: var(--#{$color-name});
+		}
+		.has-#{$color-name}-border-color {
+			border-color: var(--#{$color-name});
+		}
+	}
+}

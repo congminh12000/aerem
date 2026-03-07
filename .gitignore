@@ -1,0 +1,21 @@
+.DS_Store
+
+# Local-only configuration
+wp-config.php
+local-xdebuginfo.php
+
+# Runtime and cache data
+wp-content/cache/
+wp-content/litespeed/
+wp-content/wflogs/
+wp-content/upgrade/
+wp-content/upgrade-temp-backup/
+wp-content/temp-write-test-*
+
+# Local backups
+wp-content/ai1wm-backups/
+wp-content/updraft/
+
+# User-generated media
+wp-content/uploads/
+wp-content/uploads-old/

@@ -1,0 +1,42 @@
+@import "contextual-maps";
+@import "contextual-vars";
+@import "contextual-colors";
+
+// Generate Classes
+
+@each $utility-category, $utility-group in $contextuals{
+    @each $utility, $utility-value in $utility-group {
+        // Generate Background Color Classes
+        @if $utility-category == "background-colors" {
+            .bg--#{$utility} {
+                background-color: var(--bg-#{$utility});
+            }
+        }
+        // Generate Text Color Classes
+        @if $utility-category == "text-colors" {
+            .text--#{$utility} {
+                color: var(--text-#{$utility});
+            }
+        }
+    }
+}
+
+// Automatically swap text color based on background color
+@if $option-relate-bg-text == on {
+    :where(.bg--ultra-light),
+    :where(.bg--ultra-light :is(h1,h2,h3,h4,h5,h6)) {
+	    color: $bg-ultra-light-text;
+    }
+    :where(.bg--light),
+    :where(.bg--light :is(h1,h2,h3,h4,h5,h6)) {
+	    color: $bg-light-text;
+    }
+    :where(.bg--dark),
+    :where(.bg--dark :is(h1,h2,h3,h4,h5,h6)) {
+	    color: $bg-dark-text;
+    }
+    :where(.bg--ultra-dark),
+    :where(.bg--ultra-dark :is(h1,h2,h3,h4,h5,h6)) {
+	    color: $bg-ultra-dark-text;
+    }
+}

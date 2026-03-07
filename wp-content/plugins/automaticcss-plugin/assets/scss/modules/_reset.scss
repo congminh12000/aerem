@@ -1,0 +1,73 @@
+@import "../helpers/mixins";
+
+$output-root-font-size: true !default; // Needed for Gutenberg's in-editor styling.
+
+// ROOT SIZE
+html {
+  @if $output-root-font-size != false {
+    font-size: var(--root-font-size) !important;
+  }
+
+  @include if-smooth-scrolling-on {
+    scroll-behavior: smooth;
+  }
+}
+
+[id] {
+  scroll-margin-top: var(--offset);
+  @if $option-breakpoint-xxl == on and $offset-xxl != "0rem" {
+    @include breakpoint(xxl) {
+      --offset: var(--offset-xxl);
+    }
+  }
+  @if $offset-xl != "0rem" {
+    @include breakpoint(xl) {
+      --offset: var(--offset-xl);
+    }
+  }
+  @if $offset-l != "0rem" {
+    @include breakpoint(l) {
+      --offset: var(--offset-l);
+    }
+  }
+  @if $offset-m != "0rem" {
+    @include breakpoint(m) {
+      --offset: var(--offset-m);
+    }
+  }
+  @if $offset-s != "0rem" {
+    @include breakpoint(s) {
+      --offset: var(--offset-s);
+    }
+  }
+
+  @if $option-breakpoint-xs == on and $offset-xs != "0rem" {
+    @include breakpoint(xs) {
+      --offset: var(--offset-xs);
+    }
+  }
+}
+
+// BOX SIZING
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// BODY
+body {
+  min-block-size: 100vh;
+}
+
+//INHERIT FONTS FOR INPUTS AND BUTTONS
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+:where(dd) {
+  margin-inline-start: 0;
+}

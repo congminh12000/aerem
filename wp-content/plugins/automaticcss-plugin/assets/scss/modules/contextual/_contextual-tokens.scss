@@ -1,0 +1,26 @@
+:root {
+    //Generate Contextual Spacing Tokens
+    @each $utility-category, $utility-group in $contextuals {
+        @each $utility-name, $utility-value in $utility-group {
+            @if $utility-category == "spacing" {
+                --#{$utility-name}: #{$utility-value};
+            }
+        }
+    }
+    //Generate Contextual Background Tokens
+    @each $utility-category, $utility-group in $contextuals {
+        @each $utility-name, $utility-value in $utility-group {
+            @if $utility-category == "background-colors" {
+                --bg-#{$utility-name}: #{$utility-value};
+            }
+        }
+    }
+    //Generate Contextual Text Tokens
+    @each $utility-category, $utility-group in $contextuals {
+        @each $utility-name, $utility-value in $utility-group {
+            @if $utility-category == "text-colors" {
+                --text-#{$utility-name}: #{$utility-value};
+            }
+        }
+    }
+}

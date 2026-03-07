@@ -1,0 +1,191 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://automaticcss.com/schemas/1.0.0/framework.json",
+	"title": "Framework Classes and Variables",
+	"description": "Classes and variables for the Automatic.css framework",
+	"type": "object",
+	"properties": {
+		"categories": {
+			"description": "The categories of classes and variables",
+			"type": "object",
+			"additionalProperties": {
+				"type": "object",
+				"properties": {
+					"condition": {
+						"$ref": "#/$defs/condition"
+					},
+					"classes": {
+						"$ref": "#/$defs/classes"
+					},
+					"classes_with_variants": {
+						"$ref": "#/$defs/classes_with_variants"
+					},
+					"vars": {
+						"$ref": "#/$defs/vars"
+					},
+					"vars_with_variants": {
+						"$ref": "#/$defs/vars_with_variants"
+					},
+					"category_groups": {
+						"type": "object",
+						"additionalProperties": {
+							"type": "object",
+							"properties": {
+								"condition": {
+									"$ref": "#/$defs/condition"
+								},
+								"classes": {
+									"$ref": "#/$defs/classes"
+								},
+								"classes_with_variants": {
+									"$ref": "#/$defs/classes_with_variants"
+								},
+								"vars": {
+									"$ref": "#/$defs/vars"
+								},
+								"vars_with_variants": {
+									"$ref": "#/$defs/vars_with_variants"
+								},
+								"class_groups": {
+									"type": "object",
+									"description": "Classes for this group",
+									"additionalProperties": {
+										"type": "object",
+										"properties": {
+											"condition": {
+												"$ref": "#/$defs/condition"
+											},
+											"classes": {
+												"$ref": "#/$defs/classes"
+											},
+											"classes_with_variants": {
+												"$ref": "#/$defs/classes_with_variants"
+											},
+											"vars": {
+												"$ref": "#/$defs/vars"
+											},
+											"vars_with_variants": {
+												"$ref": "#/$defs/vars_with_variants"
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"required": ["categories"],
+	"$defs": {
+		"condition": {
+			"description": "Condition to show this category",
+			"type": "object",
+			"properties": {
+				"type": {
+					"description": "The type of condition",
+					"type": "string",
+					"enum": [
+						"=",
+						"!="
+					]
+				},
+				"setting": {
+					"description": "The Automatic.css setting to check",
+					"type": "string"
+				},
+				"value": {
+					"description": "The value the setting must match to show the item",
+					"type": "string"
+				}
+			}
+		},
+		"classes": {
+			"description": "A simple list of classes, where each class has no further variation",
+			"type": "object",
+			"additionalProperties": {
+				"type": "object",
+				"items": {
+					"type": "object",
+					"properties": {
+						"label": {
+							"description": "The name / title / label for this item",
+							"type": "string"
+						},
+						"description": {
+							"description": "A description of this item, usually used for tooltips",
+							"type": "string"
+						}
+					},
+					"additionalProperties": false
+				}
+			}
+		},
+		"classes_with_variants": {
+			"description": "A list of classes, where each class has variants (such as breakpoints, size or color)",
+			"type": "object",
+			"properties": {
+				"label": {
+					"description": "The name / title / label for this item",
+					"type": "string"
+				},
+				"description": {
+					"description": "A description of this item, usually used for tooltips",
+					"type": "string"
+				},
+				"variants": {
+					"description": "The variants for this class",
+					"type": "object",
+					"additionalProperties": {
+						"type": "object"
+					}
+				}
+			},
+			"additionalProperties": false
+		},
+		"vars": {
+			"description": "A simple list of CSS variables that belong in this category",
+			"type": "object",
+			"additionalProperties": {
+				"type": "object",
+				"items": {
+					"type": "object",
+					"properties": {
+						"label": {
+							"description": "The name / title / label for this item",
+							"type": "string"
+						},
+						"description": {
+							"description": "A description of this item, usually used for tooltips",
+							"type": "string"
+						}
+					},
+					"additionalProperties": false
+				}
+			}
+		},
+		"vars_with_variants": {
+			"description": "A list of vars, where each class has variants (such as breakpoints, size or color)",
+			"type": "object",
+			"properties": {
+				"label": {
+					"description": "The name / title / label for this item",
+					"type": "string"
+				},
+				"description": {
+					"description": "A description of this item, usually used for tooltips",
+					"type": "string"
+				},
+				"variants": {
+					"description": "The variants for this class",
+					"type": "object",
+					"additionalProperties": {
+						"type": "object"
+					}
+				}
+			},
+			"additionalProperties": false
+		}
+	}
+}

@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",(()=>{const e=(document.querySelector("main > header")||document.querySelector("main > section")).offsetHeight;document.documentElement.style.setProperty("--header-height",`${e}px`)}));

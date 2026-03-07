@@ -1,0 +1,13 @@
+@if $option-basic-text-classes == on {
+  @each $size, $extension in $textExtensions {
+    .text--#{$extension},
+    .text--#{$extension} > p,
+    .text--#{$extension} > ol li,
+    .text--#{$extension} > ul li {
+      // Set font size
+      font-size: var(--text-#{$extension});
+      line-height: var(--text-#{$extension}-lh);
+      max-inline-size: var(--text-#{$extension}-length);
+    }
+  }
+}

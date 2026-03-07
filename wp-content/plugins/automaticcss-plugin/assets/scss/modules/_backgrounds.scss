@@ -1,0 +1,20 @@
+@if $option-backgrounds == on {
+  @each $utility, $value in $all-colors {
+    .bg--#{$utility} {
+      background-color: var(--#{$utility} );
+    }
+  }
+
+  // Deprecated in 2.8:
+  // @each $color, $color-sets in $all-colors {
+  //   @each $color-set, $color-names in $color-sets {
+  //     @each $color-name, $color-value in $color-names {
+  //       .bg--#{$color-name} {
+  //         background-color: var(--#{$color-name});
+  //       }
+  //     }
+  //   }
+  // }
+
+
+}

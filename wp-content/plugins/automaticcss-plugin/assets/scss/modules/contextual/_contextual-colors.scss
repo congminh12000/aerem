@@ -1,0 +1,16 @@
+// Contextual Colors
+
+@if $option-contextual-color-classes == on {
+    @each $colorName, $colorSet in $contextualColors {
+        @each $colorName, $colorValue in $colorSet {
+            .text--#{$colorName} {
+                color: var(--#{$colorName});
+            }
+            .bg--#{$colorName} {
+                background-color: var(--#{$colorName});
+            }
+
+            // Links are generated in the links module.
+        }
+    }
+}

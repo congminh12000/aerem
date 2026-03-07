@@ -1,0 +1,44 @@
+@if $option-buttons == on and $option-gutenberg-enable == on and $option-generate-blocks == off {
+  .wp-block-button[class*="btn--"] {
+    padding: 0 !important;
+    background-color: transparent !important;
+    min-inline-size: 0 !important;
+    border: 0 !important;
+  }
+  
+  @each $btnColor, $btnProps in $buttons {
+      .btn--#{$btnColor} {
+        @each $prop, $value in $btnProps {
+          --#{$prop}: #{$value};
+        }
+      }
+    }
+      @each $buttonColor, $buttonProps in $buttons {
+        .btn--#{$buttonColor}:not(.wp-block-button),
+        .wp-block-button.btn--#{$buttonColor} > .wp-block-button__link,
+        .wp-block-button.btn--#{$buttonColor} > a {
+            @include button();
+        }
+      }
+  
+      // GENERATE BUTTON SIZES
+      @each $size, $extension in $sizeExtensions {
+        .btn--#{$extension}:not(.wp-block-button),
+        .wp-block-button.btn--#{$extension} > a,
+        .wp-block-button.btn--#{$extension} > .wp-block-button__link {
+          @include button;
+          font-size: var(--text-#{$extension});
+          cursor: pointer;
+        }
+      }
+  
+      a[class*="btn--"] {
+        display: inline-flex;
+      }
+  
+      .btn--clear {
+        background: none;
+        border: none;
+      }
+  }
+  

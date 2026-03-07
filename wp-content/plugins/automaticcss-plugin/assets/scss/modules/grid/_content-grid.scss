@@ -1,0 +1,68 @@
+// User Variables
+
+$option-content-grid: on !default;
+$content-feature: 50px !default;
+$content-feature-max: 100px !default;
+
+@if $option-content-grid == on {
+	.content-grid {
+		--full: minmax(var(--gutter), 1fr);
+		padding-inline: 0;
+		column-gap: 0 !important;
+		display: grid !important;
+		grid-template-columns:
+			[full-start]
+				var(--full)
+			[feature-max-start]
+				minmax(0, var(--feature-max-width, #{$content-feature-max}))
+			[feature-start]
+				minmax(0, var(--feature-width, #{$content-feature}))
+			[content-start]
+				min(var(--content-width), 100% - var(--gutter) * 2)
+			[content-end]
+				minmax(0, var(--feature-width, #{$content-feature}))
+			[feature-end]
+				minmax(0, var(--feature-max-width, #{$content-feature-max}))
+			[feature-max-end]
+				var(--full)
+			[full-end];
+	}
+
+	.content-grid > :not(
+		.content--feature,
+		.content--feature-max,
+		.content--full,
+		.content--full-safe) {
+		width: 100%;
+	}
+
+	:where(.content-grid > :not(
+		.content--feature,
+		.content--feature-max,
+		.content--full,
+		.content--full-safe)) {
+			grid-column: content;
+	}
+
+	:where(.content-grid > .content--feature) {
+		grid-column: feature;
+	}
+	:where(.content-grid > .content--feature-max) {
+		grid-column: feature-max;
+	}
+	:where(.content-grid > .content--full) {
+		grid-column: full;
+	}
+	:where(.content-grid > .content--full-safe) {
+		grid-column: full;
+		padding-inline: var(--gutter);
+	}
+	.content-grid:where(.content--full-safe) {
+		padding-inline: var(--gutter);
+	}
+
+	.content-grid > :is(.content--feature, .content--feature-max, .content--full, .content--full-safe) {
+		width: 100%;
+		max-width: 100%;
+	}
+}
