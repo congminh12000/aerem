@@ -1,4 +1,6 @@
 .DS_Store
+.env
+.env.*
 
 # Local-only configuration
 wp-config.php
@@ -19,3 +21,6 @@ wp-content/updraft/
 # User-generated media
 wp-content/uploads/
 wp-content/uploads-old/
+
+# Private backup artifacts
+private-backups/
